@@ -1,10 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState ,useEffect} from 'react';
 import DataContext from '../context/dataContext';
-
+import sad from "./sad.png";
+import happy from "./happy.png";
 const Result = () => {
     const { showResult, quizs, marks, startOver }  = useContext(DataContext);
+    const [overlaydisplay,setOverlay]=useState("active");
+    useEffect(()=>{
+        setOverlay("active");
+        setTimeout(()=>{setOverlay('in-active')},1000);
+    },[showResult]);
     return (
-        <section className="bg-dark text-white" style={{ display: `${showResult ? 'block' : 'none'}` }}>
+        <section className=" text-white relative" style={{ display: `${showResult ? 'block' : 'none'}` }}>
+            <div className={`overlay ${overlaydisplay}`}>
+                <div className={`suboverlay ${marks > (quizs.length * 5 / 2) ? 'active' : 'in-active'}`}>
+                    <img src={happy}></img>
+                </div>
+                <div className={`suboverlay ${marks > (quizs.length * 5 / 2) ? 'in-active' : 'active'}`}>
+                    <img src={sad}></img>
+                </div>
+            </div>
             <div className="container">
                 <div className="row vh-100 align-items-center justify-content-center">
                     <div className="col-lg-6">

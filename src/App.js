@@ -3,20 +3,40 @@ import Start from './components/Start';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import { DataProvider } from './context/dataContext';
+import "./App.css";
 
 function App() {
   return (
+    <div className='AppMain'>
+    <div class="wrapper">
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+    </div>
+    
     <DataProvider>
-      {/* Welcome Page */}
       <Start/>
 
-      {/* Quiz Page */}
       <Quiz/>
 
-      {/* Result Page */}
       <Result/>
 
     </DataProvider>
+
+
+    </div>
   );
 }
 
